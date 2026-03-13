@@ -4,35 +4,34 @@ public class ProjectileController : MonoBehaviour
 {
     [SerializeField] private float m_vitesse = 20f;
     [SerializeField] private float m_dureeDeVie = 5f;
-    [SerializeField] private float m_rotationSpeedX = 0;
-    [SerializeField] private float m_rotationSpeedY = 0;
-    [SerializeField] private float m_rotationSpeedZ = 0;
-
-    // [SerializeField] private ShootController m_shootController;
 
     private Vector3 m_rotationSpeed;
+    private Vector3 m_direction;
 
     private void Start()
     {
-        m_rotationSpeed = new Vector3(m_rotationSpeedX, m_rotationSpeedY, m_rotationSpeedZ);
+        m_rotationSpeed = new Vector3(
+            Random.Range(-180f, 180f),
+            Random.Range(-180f, 180f),
+            Random.Range(-180f, 180f)
+        );
+        m_direction = transform.forward;
         Destroy(gameObject, m_dureeDeVie);
     }
 
     private void Update()
     {
-        transform.position += transform.forward * m_vitesse * Time.deltaTime;
-        // transform.Rotate(m_rotationSpeed * Time.deltaTime, Space.Self);
-
+        transform.Rotate(m_rotationSpeed * Time.deltaTime, Space.Self);
+        transform.position += m_direction * m_vitesse * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
         if (collision.gameObject.CompareTag("virus"))
         {
             Destroy(collision.gameObject);
-            // m_shootController.m_score += 100;
-            // m_shootController.m_scoreText.text = m_shootController.m_score.ToString();
+            GameManager.Instance.AjouterScore(100);
         }
+        Destroy(gameObject);
     }
 }

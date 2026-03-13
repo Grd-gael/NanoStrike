@@ -84,10 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileController
   m_vitesse: 20
-  m_dureeDeVie: 5
-  m_rotationSpeedX: 20
-  m_rotationSpeedY: 40
-  m_rotationSpeedZ: 300
+  m_dureeDeVie: 10
 --- !u!65 &-7415780824914201495
 BoxCollider:
   m_ObjectHideFlags: 0
