@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using OscJack;
 
+
 public class ShootController : MonoBehaviour
 {
     public static ShootController Instance;
@@ -20,6 +21,11 @@ public class ShootController : MonoBehaviour
     [SerializeField] private TMP_Text m_shootRemainingText;
     [SerializeField] private TMP_Text m_reloadInstructionText;
 
+    // Sound
+
+    public AudioClip m_shootSound;
+    private AudioSource m_audioSource;
+
     private void Awake()
     {
         Instance = this;
@@ -36,6 +42,9 @@ public class ShootController : MonoBehaviour
 
         OscManager.Instance.AddCallback("/shoot", OnOscShoot);
         OscManager.Instance.AddCallback("/reload", OnOscReload);
+
+        // Sound
+        m_audioSource = GetComponent<AudioSource>();
     }
 
     private void OnDestroy()
@@ -89,6 +98,12 @@ public class ShootController : MonoBehaviour
 
     public void Shoot()
     {
+
+        if (m_audioSource != null && m_shootSound != null)
+        {
+            m_audioSource.PlayOneShot(m_shootSound);
+        }
+
         if (m_projectile != null)
         {
             Vector3 position = m_cameraInitial.transform.position
@@ -96,5 +111,7 @@ public class ShootController : MonoBehaviour
                              + m_cameraInitial.transform.forward * 1.5f;
             Instantiate(m_projectile, position, m_cameraInitial.transform.rotation);
         }
+
+
     }
 }

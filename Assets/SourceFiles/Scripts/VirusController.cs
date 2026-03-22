@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class VirusController : MonoBehaviour
 {
     [SerializeField] private float m_vitesse = 2f;
@@ -7,6 +8,8 @@ public class VirusController : MonoBehaviour
     [SerializeField] private float m_degatsInterval = 1f;
 
     private Transform m_poumon;
+
+    private Transform m_coeur;
     private bool m_accroche = false;
     private float m_degatsTimer;
     private Vector3 m_rotationSpeed;
@@ -14,11 +17,13 @@ public class VirusController : MonoBehaviour
     private void Start()
     {
         m_poumon = GameObject.FindWithTag("poumons").transform;
+        m_coeur = GameObject.FindWithTag("coeur").transform;
         m_rotationSpeed = new Vector3(
             Random.Range(-180f, 180f),
             Random.Range(-180f, 180f),
             Random.Range(-180f, 180f)
         );
+
     }
 
     private void Update()
@@ -46,11 +51,12 @@ public class VirusController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("poumons"))
+        if (collision.gameObject.CompareTag("poumons") || collision.gameObject.CompareTag("coeur"))
         {
             m_accroche = true;
             transform.SetParent(collision.transform);
             GetComponent<Rigidbody>().isKinematic = true;
         }
     }
+
 }

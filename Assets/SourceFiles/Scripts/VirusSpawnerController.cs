@@ -35,4 +35,5 @@ public class VirusSpawnerController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, m_zoneSize);
     }
+
 }

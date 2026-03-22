@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f7fc18b20ee449989d31bda036efd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VirusController
-  m_vitesse: 1
-  m_degats: 5
+  m_vitesse: 1.5
+  m_degats: 10
   m_degatsInterval: 1
 --- !u!54 &3871583542611138137
 Rigidbody:

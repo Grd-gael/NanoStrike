@@ -12,6 +12,7 @@ TagManager:
   - Cube_Spawn_Point_2
   - virus
   - poumons
+  - coeur
   layers:
   - Default
   - TransparentFX
