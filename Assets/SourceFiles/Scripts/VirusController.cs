@@ -15,6 +15,7 @@ public class VirusController : MonoBehaviour
     private float m_degatsTimer;
     private Vector3 m_rotationSpeed;
 
+    // Initialize the targets and the random rotation of the virus
     private void Start()
     {
         if (!string.IsNullOrWhiteSpace(m_tagCiblePrincipale))
@@ -25,7 +26,6 @@ public class VirusController : MonoBehaviour
 
         if (m_cible == null)
         {
-            Debug.LogError($"VirusController: cible principale introuvable avec le tag '{m_tagCiblePrincipale}'.", this);
             enabled = false;
             return;
         }
@@ -44,6 +44,7 @@ public class VirusController : MonoBehaviour
         if (m_cible == null)
             return;
 
+        // Move towards the target if not attached, otherwise apply damage over time
         if (!m_accroche)
         {
             transform.position = Vector3.MoveTowards(
@@ -65,6 +66,7 @@ public class VirusController : MonoBehaviour
         }
     }
 
+    // Detect collision with the target and attach to it
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("poumons") || collision.gameObject.CompareTag("coeur") || collision.gameObject.CompareTag("estomac"))

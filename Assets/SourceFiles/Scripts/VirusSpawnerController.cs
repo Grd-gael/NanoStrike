@@ -23,6 +23,7 @@ public class VirusSpawnerController : MonoBehaviour
 
     private void SpawnVirus()
     {
+        // Get a random position within the defined zone
         Vector3 randomPos = transform.position + new Vector3(
             Random.Range(-m_zoneSize.x / 2, m_zoneSize.x / 2),
             Random.Range(-m_zoneSize.y / 2, m_zoneSize.y / 2),
@@ -34,12 +35,6 @@ public class VirusSpawnerController : MonoBehaviour
             return;
 
         Instantiate(randomVirus, randomPos, Quaternion.identity);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, m_zoneSize);
     }
 
 }

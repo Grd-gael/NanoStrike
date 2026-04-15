@@ -34,6 +34,8 @@ public class ScreenManager : MonoBehaviour
         AppliquerEtat();
     }
 
+
+    // Define the screen we control
     private void AppliquerEtat()
     {
         bool poumonActif = m_ecranActif == 0;

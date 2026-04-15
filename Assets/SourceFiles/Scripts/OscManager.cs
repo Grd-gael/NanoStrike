@@ -3,6 +3,7 @@ using OscJack;
 
 public class OscManager : MonoBehaviour
 {
+    // Simple singleton for global access.
     public static OscManager Instance;
 
     [SerializeField] private int m_port = 9000;
@@ -18,6 +19,7 @@ public class OscManager : MonoBehaviour
             return;
         }
         Instance = this;
+        // Keep this object alive between scenes.
         DontDestroyOnLoad(gameObject);
 
         m_oscServer = new OscServer(m_port);
@@ -25,6 +27,7 @@ public class OscManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        // Stop new calls before closing the server.
         m_isShuttingDown = true;
         m_oscServer?.Dispose();
 
@@ -34,6 +37,7 @@ public class OscManager : MonoBehaviour
 
     public void AddCallback(string address, OscMessageDispatcher.MessageCallback callback)
     {
+        // Ignore calls while the manager is closing.
         if (m_isShuttingDown || m_oscServer == null)
             return;
 
@@ -42,6 +46,7 @@ public class OscManager : MonoBehaviour
 
     public void RemoveCallback(string address, OscMessageDispatcher.MessageCallback callback)
     {
+        // Ignore calls while the manager is closing.
         if (m_isShuttingDown || m_oscServer == null)
             return;
 

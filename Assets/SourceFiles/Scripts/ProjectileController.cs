@@ -10,7 +10,6 @@ public class ProjectileController : MonoBehaviour
     private Vector3 m_direction;
 
     // Sound
-
     public AudioClip m_destroySound;
     private AudioSource m_audioSource;
 
@@ -37,6 +36,7 @@ public class ProjectileController : MonoBehaviour
         transform.position += m_direction * m_vitesse * Time.deltaTime;
     }
 
+    // Destroy projectile on collision and play sound if it hits a virus
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("virus"))

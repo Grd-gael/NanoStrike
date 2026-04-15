@@ -74,6 +74,7 @@ public class ShootController : MonoBehaviour
         Reload();
     }
 
+    // Try to shoot if we can, otherwise do nothing
     private void TryShoot()
     {
         if (m_shootTimer > 0) return;
@@ -89,6 +90,8 @@ public class ShootController : MonoBehaviour
         Shoot();
     }
 
+
+    // Reload the shoot count and update the UI 
     public void Reload()
     {
         m_shootRemaining = m_shootNumber;
@@ -96,6 +99,7 @@ public class ShootController : MonoBehaviour
         m_reloadInstructionText.gameObject.SetActive(false);
     }
 
+    // Instantiate a projectile in front of the camera and play the shoot sound
     public void Shoot()
     {
 

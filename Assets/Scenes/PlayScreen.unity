@@ -119,56 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &2763476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2763478}
-  - component: {fileID: 2763477}
-  m_Layer: 0
-  m_Name: MadMapper2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2763477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2763476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45099d624c1e6c14e9514f4e5ea1ed9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutSender
-  _spoutName: Spout Sender
-  _keepAlpha: 0
-  _captureMethod: 1
-  _sourceCamera: {fileID: 1980627215}
-  _sourceTexture: {fileID: 0}
-  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
---- !u!4 &2763478
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2763476}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.24556, y: 12.69415, z: -1.44583}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3011521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,9 +1010,9 @@ Canvas:
   m_GameObject: {fileID: 302065181}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1273744201}
+  m_PlaneDistance: 0.4
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2350,56 +2300,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732208977}
   m_CullTransparentMesh: 1
---- !u!1 &732531658
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 732531660}
-  - component: {fileID: 732531662}
-  m_Layer: 0
-  m_Name: MadMapper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &732531660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732531658}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.24556, y: 12.69415, z: -1.44583}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &732531662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732531658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45099d624c1e6c14e9514f4e5ea1ed9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutSender
-  _spoutName: Spout Sender
-  _keepAlpha: 0
-  _captureMethod: 1
-  _sourceCamera: {fileID: 1273744201}
-  _sourceTexture: {fileID: 0}
-  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1 &738464075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,7 +2568,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1273744201}
-  m_PlaneDistance: 0.4
+  m_PlaneDistance: 0.41
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2713,7 +2613,7 @@ MonoBehaviour:
   - {fileID: 3995406252236244898, guid: a45bec7f0633142b9997724df3db12d5, type: 3}
   - {fileID: 4039624815973868678, guid: 5904fe4d647244aa3b81f45b51f72963, type: 3}
   - {fileID: 1192446918171193940, guid: 4c0f52a412f0c41a6a4f0b2f39624651, type: 3}
-  m_spawnInterval: 7
+  m_spawnInterval: 9
   m_zoneSize: {x: 20, y: 35, z: 20}
 --- !u!4 &785074470
 Transform:
@@ -4412,7 +4312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258213352249441ebbb5cbc0acc25384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  m_vieMax: 100
+  m_vieMax: 200
   m_viesRestantes:
   - {fileID: 5195333}
   - {fileID: 1545290078}
@@ -5952,7 +5852,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1273744201}
-  m_PlaneDistance: 0.4
+  m_PlaneDistance: 0.42
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -6310,7 +6210,7 @@ MonoBehaviour:
   - {fileID: 4528025178327437292, guid: e8c9bd0390f164a24a768b195a4931e4, type: 3}
   - {fileID: 4039624815973868678, guid: f61ecb07e08a24a6bacb27ad105db4cf, type: 3}
   - {fileID: 1192446918171193940, guid: b6d518f8565744191a02ecb2ecb2d273, type: 3}
-  m_spawnInterval: 4
+  m_spawnInterval: 10
   m_zoneSize: {x: 20, y: 20, z: 20}
 --- !u!4 &1741753958
 Transform:
@@ -6887,6 +6787,7 @@ GameObject:
   - component: {fileID: 1980627215}
   - component: {fileID: 1980627214}
   - component: {fileID: 1980627213}
+  - component: {fileID: 1980627217}
   m_Layer: 0
   m_Name: CameraEstomac
   m_TagString: Untagged
@@ -6988,7 +6889,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -7012,6 +6913,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1558706719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980627217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980627212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45099d624c1e6c14e9514f4e5ea1ed9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutSender
+  _spoutName: Estomac
+  _keepAlpha: 0
+  _captureMethod: 1
+  _sourceCamera: {fileID: 1980627215}
+  _sourceTexture: {fileID: 0}
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1 &1991333461
 GameObject:
   m_ObjectHideFlags: 0
@@ -7332,7 +7251,7 @@ MonoBehaviour:
   - {fileID: 3995406252236244898, guid: a45bec7f0633142b9997724df3db12d5, type: 3}
   - {fileID: 4039624815973868678, guid: 5904fe4d647244aa3b81f45b51f72963, type: 3}
   - {fileID: 1192446918171193940, guid: 4c0f52a412f0c41a6a4f0b2f39624651, type: 3}
-  m_spawnInterval: 5
+  m_spawnInterval: 7
   m_zoneSize: {x: 20, y: 20, z: 20}
 --- !u!4 &2052399406
 Transform:
@@ -7697,8 +7616,10 @@ PrefabInstance:
       propertyPath: m_AllowXRRendering
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 8947767684135381071, guid: 70dca116edf2547d3b003be2d0b08c95, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 1608340527459310675, guid: 70dca116edf2547d3b003be2d0b08c95, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4894515799478061953, guid: 70dca116edf2547d3b003be2d0b08c95, type: 3}
       insertIndex: 0
@@ -7707,20 +7628,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3491363536920468496, guid: 70dca116edf2547d3b003be2d0b08c95, type: 3}
       insertIndex: -1
       addedObject: {fileID: 819963620}
+    - targetCorrespondingSourceObject: {fileID: 4532518821800290746, guid: 70dca116edf2547d3b003be2d0b08c95, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7945828663738638055}
   m_SourcePrefab: {fileID: 100100000, guid: 70dca116edf2547d3b003be2d0b08c95, type: 3}
 --- !u!81 &7945828663738638054 stripped
 AudioListener:
   m_CorrespondingSourceObject: {fileID: 7772934790958024393, guid: 70dca116edf2547d3b003be2d0b08c95, type: 3}
   m_PrefabInstance: {fileID: 7945828663738638053}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7945828663738638055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273744197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45099d624c1e6c14e9514f4e5ea1ed9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Klak.Spout.Runtime::Klak.Spout.SpoutSender
+  _spoutName: PoumonsCoeur
+  _keepAlpha: 0
+  _captureMethod: 1
+  _sourceCamera: {fileID: 1273744201}
+  _sourceTexture: {fileID: 0}
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1334288095}
   - {fileID: 794964251}
-  - {fileID: 732531660}
-  - {fileID: 2763478}
   - {fileID: 1402580341}
   - {fileID: 302065185}
   - {fileID: 1372258872}
