@@ -107,8 +107,7 @@ public class ShootController : MonoBehaviour
         if (m_projectile != null)
         {
             Vector3 position = m_cameraInitial.transform.position
-                             + m_cameraMouvement.transform.position
-                             + m_cameraInitial.transform.forward * 1.5f;
+                 + m_cameraInitial.transform.forward * 1.5f;
             Instantiate(m_projectile, position, m_cameraInitial.transform.rotation);
         }
 

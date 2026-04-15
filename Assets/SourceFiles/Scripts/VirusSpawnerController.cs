@@ -10,11 +10,14 @@ public class VirusSpawnerController : MonoBehaviour
 
     private void Update()
     {
+        if (m_virusPrefabs == null || m_virusPrefabs.Length == 0)
+            return;
+
         m_spawnTimer -= Time.deltaTime;
         if (m_spawnTimer <= 0)
         {
             SpawnVirus();
-            m_spawnTimer = m_spawnInterval;
+            m_spawnTimer = Mathf.Max(0.1f, m_spawnInterval);
         }
     }
 
@@ -27,6 +30,9 @@ public class VirusSpawnerController : MonoBehaviour
         );
 
         GameObject randomVirus = m_virusPrefabs[Random.Range(0, m_virusPrefabs.Length)];
+        if (randomVirus == null)
+            return;
+
         Instantiate(randomVirus, randomPos, Quaternion.identity);
     }
 

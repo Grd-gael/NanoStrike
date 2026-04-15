@@ -9,15 +9,15 @@ public class GameManager : MonoBehaviour
 
     [Header("Vie")]
     [SerializeField] private float m_vieMax = 100f;
-    [SerializeField] private RectTransform m_vieRestante;
+    [SerializeField] private RectTransform[] m_viesRestantes;
 
     [SerializeField] private GameObject m_gameOverScreen;
 
     [Header("Score")]
-    [SerializeField] private TMP_Text m_scoreText;
+    [SerializeField] private TMP_Text[] m_scoreTexts;
 
     private float m_vie;
-    private float m_largeurMax;
+    private float[] m_largeursMax;
     private int m_score = 0;
 
     private void Awake()
@@ -27,8 +27,23 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (m_viesRestantes == null)
+            m_viesRestantes = new RectTransform[0];
+
+        if (m_scoreTexts == null)
+            m_scoreTexts = new TMP_Text[0];
+
         m_vie = m_vieMax;
-        m_largeurMax = m_vieRestante.sizeDelta.x;
+        m_largeursMax = new float[m_viesRestantes.Length];
+
+        for (int i = 0; i < m_viesRestantes.Length; i++)
+        {
+            if (m_viesRestantes[i] == null)
+                continue;
+
+            m_largeursMax[i] = m_viesRestantes[i].sizeDelta.x;
+        }
+
         MettreAJourScore();
         MettreAJourBarre();
     }
@@ -46,7 +61,15 @@ public class GameManager : MonoBehaviour
     private void MettreAJourBarre()
     {
         float ratio = m_vie / m_vieMax;
-        m_vieRestante.sizeDelta = new Vector2(m_largeurMax * ratio, m_vieRestante.sizeDelta.y);
+
+        for (int i = 0; i < m_viesRestantes.Length; i++)
+        {
+            RectTransform barreVie = m_viesRestantes[i];
+            if (barreVie == null)
+                continue;
+
+            barreVie.sizeDelta = new Vector2(m_largeursMax[i] * ratio, barreVie.sizeDelta.y);
+        }
     }
 
     public void AjouterScore(int points)
@@ -57,7 +80,16 @@ public class GameManager : MonoBehaviour
 
     private void MettreAJourScore()
     {
-        m_scoreText.text = m_score.ToString("D6");
+        string scoreFormate = m_score.ToString("D6");
+
+        for (int i = 0; i < m_scoreTexts.Length; i++)
+        {
+            TMP_Text scoreText = m_scoreTexts[i];
+            if (scoreText == null)
+                continue;
+
+            scoreText.text = scoreFormate;
+        }
     }
 
     private void GameOver()

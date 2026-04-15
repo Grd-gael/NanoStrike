@@ -8,6 +8,7 @@ public class OscManager : MonoBehaviour
     [SerializeField] private int m_port = 9000;
 
     private OscServer m_oscServer;
+    private bool m_isShuttingDown;
 
     private void Awake()
     {
@@ -24,16 +25,26 @@ public class OscManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        m_isShuttingDown = true;
         m_oscServer?.Dispose();
+
+        if (Instance == this)
+            Instance = null;
     }
 
     public void AddCallback(string address, OscMessageDispatcher.MessageCallback callback)
     {
-        m_oscServer.MessageDispatcher.AddCallback(address, callback);
+        if (m_isShuttingDown || m_oscServer == null)
+            return;
+
+        m_oscServer.MessageDispatcher?.AddCallback(address, callback);
     }
 
     public void RemoveCallback(string address, OscMessageDispatcher.MessageCallback callback)
     {
-        m_oscServer.MessageDispatcher.RemoveCallback(address, callback);
+        if (m_isShuttingDown || m_oscServer == null)
+            return;
+
+        m_oscServer.MessageDispatcher?.RemoveCallback(address, callback);
     }
 }

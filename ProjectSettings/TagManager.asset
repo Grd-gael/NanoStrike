@@ -13,6 +13,7 @@ TagManager:
   - virus
   - poumons
   - coeur
+  - estomac
   layers:
   - Default
   - TransparentFX

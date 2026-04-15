@@ -12,17 +12,26 @@ public class CameraController : MonoBehaviour
     private float m_fixedX;
     private float m_oscAxisZ = 0f;
     private float m_oscAxisY = 0f;
+    private bool m_callbacksRegistered;
 
 
     void Start()
     {
         m_fixedX = transform.position.x;
-        OscManager.Instance.AddCallback("/joystick/x", OnJoystickX);
-        OscManager.Instance.AddCallback("/joystick/y", OnJoystickY);
+
+        if (OscManager.Instance != null)
+        {
+            OscManager.Instance.AddCallback("/joystick/x", OnJoystickX);
+            OscManager.Instance.AddCallback("/joystick/y", OnJoystickY);
+            m_callbacksRegistered = true;
+        }
     }
 
     private void OnDestroy()
     {
+        if (!m_callbacksRegistered || OscManager.Instance == null)
+            return;
+
         OscManager.Instance.RemoveCallback("/joystick/x", OnJoystickX);
         OscManager.Instance.RemoveCallback("/joystick/y", OnJoystickY);
     }
